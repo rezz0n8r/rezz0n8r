@@ -1,7 +1,7 @@
 -  This repository has been created recently, and is under construction.
 -  It exists to serve as a growing portfolio of code samples,
-- code that I've written.
-- My own Code Samples.
+- code that I've written. My own Code Samples.
+- 
 - Portfolio of: Brad Sisk, (rezz0n8r.usap@yahoo.com)
 - All of the code published in this repo was written by Me.
 - There is no code in this repository which belongs to employers,
