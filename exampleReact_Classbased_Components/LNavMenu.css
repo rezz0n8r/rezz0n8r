@@ -1,0 +1,10 @@
+div.nav-menu {
+    padding: 4px 2px 4px 2px;
+    border: 3px groove silver;
+    background-color: lightsteelblue;
+    border-radius: 8px;
+    min-height: 80px;
+    text-align:left;
+    width: fit-content;
+}
+

@@ -1,0 +1,8 @@
+.nav-menu-item {
+    border: 2px groove silver;
+    border-radius: 8px;
+    text-align: center;
+    vertical-align: center;
+    padding: 6px 8px 6px 8px;
+    color: #0000aa;
+}
