@@ -1,10 +1,20 @@
 package codeexamples.springboot;
 
-import lombok.*;
+import java.util.Objects;
+
 import org.hibernate.Hibernate;
 
-import jakarta.persistence.*;
-import java.util.Objects;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -33,6 +43,6 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(this.id, this.name, this.price, this.quantity);
     }
 }

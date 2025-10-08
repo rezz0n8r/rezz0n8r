@@ -1,4 +1,4 @@
-package org.rezz0n8r.exercises.java.lang.streams;
+package codeexamples.streams;
 
 import java.util.Random;
 

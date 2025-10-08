@@ -1,29 +1,35 @@
 /*
  * @author: bsisk
  */
-package examples.rezz0n8r.octtree;
+package codeexamples.algs.octtree;
 
-import com.bmri.ui.core.geom.EuclidianVolume;
+
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Set;
-import org.apache.commons.geometry.euclidean.threed.Vector3D;
 
+import org.apache.commons.geometry.euclidean.threed.Bounds3D;
+import org.apache.commons.geometry.euclidean.threed.ConvexVolume;
+import org.apache.commons.geometry.euclidean.threed.RegionBSPTree3D;
+import org.apache.commons.geometry.euclidean.threed.Vector3D;
 
 
 /**
  *
- * @author graphics
+ * @author Brad Sisk
+ * 
+ * This Generic class represents a Node in an OctTree, which divides 3D space. Each Node has a Key, a generic Value
+ * and a Region. The Region being a Convex 3D Volume (uses Apache Commons Math, Geometry, EuclidianGeometry).
  */
 public class OctNode<K,V> {
     
     private K key;
     private V value;
-    private EuclidianVolume region;
+    private ConvexVolume region;
     private OctNode<K,V> parent;
     private LinkedHashMap<K,OctNode<K,V>> childNodes;
     
-    public OctNode(K nodeKey, V nodeValue, EuclidianVolume volume){
+    public OctNode(K nodeKey, V nodeValue, ConvexVolume volume){
        this.key = nodeKey;
        this.value = nodeValue;
        this.region = volume;
@@ -31,7 +37,7 @@ public class OctNode<K,V> {
        this.childNodes = new LinkedHashMap<>();
     }
     
-    public OctNode(K nodeKey, V nodeValue, EuclidianVolume vol, OctNode parentNode){
+    public OctNode(K nodeKey, V nodeValue, ConvexVolume vol, OctNode parentNode){
         this(nodeKey,nodeValue,vol);
         this.parent = parentNode;
     }
@@ -74,22 +80,27 @@ public class OctNode<K,V> {
         return (this.parent != null);
     }
     
-    public EuclidianVolume getRegion(){
+    public ConvexVolume getRegion(){
         return this.region;
     }
     
-    public void setRegion(EuclidianVolume vol){
+    public void setRegion(ConvexVolume vol){
         this.region = vol;
     }
     
-    public boolean isIntersectedBy(EuclidianVolume ev){
-       if(ev == null || this.region == null){
-           return false;
-       }
-       return ev.isIntersectingOther(this.region);
+    public boolean isIntersectedBy(ConvexVolume other){
+    	if (other == null || other.isEmpty()) {
+            return false;
+        }
+        final RegionBSPTree3D thisBsp = this.getRegion().toTree();
+        final RegionBSPTree3D otherBsp = other.toTree();
+        RegionBSPTree3D commonIntersection = new RegionBSPTree3D();
+        commonIntersection.intersection(thisBsp, otherBsp);
+        return ((!(commonIntersection.isEmpty())) && (commonIntersection.getSize() > 0.00001d)); //return True: if the intersection volume is Not Empty
+
     }
     
-    public Set<OctNode<K,V>> getIntersectedSubOctants(EuclidianVolume testVolume, OctNode<K,V> searchNode){
+    public Set<OctNode<K,V>> getIntersectedSubOctants(ConvexVolume testVolume, OctNode<K,V> searchNode){
        Set<OctNode<K,V>> intersectedSubOctants = new HashSet<>();
         for(K nodeKey: this.childNodes.keySet()){
             OctNode<K,V> childOctant= this.childNodes.get(nodeKey);
@@ -108,8 +119,11 @@ public class OctNode<K,V> {
     
     }
 
-    boolean octantContainsVolume(EuclidianVolume searchBox) {
-        return this.getRegion().entirelyContainsOther(searchBox);
+    boolean octantContainsVolume(ConvexVolume searchBox) {
+    	Bounds3D searchBoundsBox = searchBox.getBounds();
+    	Bounds3D thisBoundsBox = this.getRegion().getBounds();
+        Bounds3D intersection3D =  thisBoundsBox.intersection(searchBoundsBox);
+        return intersection3D.equals(searchBoundsBox); //only true if this region entirely Contains searchBox
     }
     
 }

@@ -1,4 +1,7 @@
-package org.rezz0n8r.exercises.java.lang.designpatterns;
+/*
+ * @author: bsisk
+ */
+package codeexamples.design.patterns.examples;
 
 public class SingletonClassExample {
 
