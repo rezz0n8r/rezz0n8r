@@ -1,0 +1,10 @@
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\entities\Product.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\entities\RecalledProduct.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\controllers\RecalledProductController.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\helpers\ProductFilter.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\repositories\RecalledProductRepository.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\InventoryApplication.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\repositories\InventoryRepository.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\services\RecalledProductService.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\controllers\InventoryController.java
+C:\Users\ambuloc3tus\dev\apex_workspace\apex-springboot-inventory\src\main\java\com\apex\eqp\inventory\services\ProductService.java

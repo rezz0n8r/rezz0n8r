@@ -1,0 +1,13 @@
+com\apex\eqp\inventory\controllers\InventoryController.class
+com\apex\eqp\inventory\entities\Product.class
+com\apex\eqp\inventory\entities\Product$ProductBuilder.class
+com\apex\eqp\inventory\InventoryApplication.class
+com\apex\eqp\inventory\repositories\InventoryRepository.class
+com\apex\eqp\inventory\services\ProductService.class
+com\apex\eqp\inventory\controllers\RecalledProductController.class
+com\apex\eqp\inventory\InventoryApplication$1.class
+com\apex\eqp\inventory\entities\RecalledProduct.class
+com\apex\eqp\inventory\services\RecalledProductService.class
+com\apex\eqp\inventory\helpers\ProductFilter.class
+com\apex\eqp\inventory\repositories\RecalledProductRepository.class
+com\apex\eqp\inventory\entities\RecalledProduct$RecalledProductBuilder.class
